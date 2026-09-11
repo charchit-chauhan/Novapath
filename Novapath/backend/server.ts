@@ -57,10 +57,8 @@ function isAllowlistedAdmin(email: string): boolean {
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:5174",
-    ],
+    origin: true, // allows your Render frontend URL
+    credentials: true,
   })
 );
 

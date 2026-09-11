@@ -29,13 +29,10 @@ export function verifyToken(token: string): { sub: string } | null {
   }
 }
 
-export interface AuthedRequest extends Request {
+// ✅ Use type intersection (not interface extends) — fixes Render build
+export type AuthedRequest = Request & {
   user?: PublicUser;
-}
-
-// =====================================================
-// MIDDLEWARE: require a valid Bearer token
-// =====================================================
+};
 
 export function requireAuth(
   req: AuthedRequest,
@@ -73,10 +70,6 @@ export function requireAuth(
   req.user = toPublicUser(user);
   next();
 }
-
-// =====================================================
-// MIDDLEWARE: require admin role (chain after requireAuth)
-// =====================================================
 
 export function requireAdmin(
   req: AuthedRequest,
