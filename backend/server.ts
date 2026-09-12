@@ -57,7 +57,7 @@ function isAllowlistedAdmin(email: string): boolean {
 
 app.use(
   cors({
-    origin: true, // allows your Render frontend URL
+    origin: true, // allow Vercel + localhost (required for deployed frontend)
     credentials: true,
   })
 );
