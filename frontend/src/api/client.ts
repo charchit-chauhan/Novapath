@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://novapath-lbwh.onrender.com";
+export const API_BASE_URL = "https://novapath-lbwh.onrender.com";
 
 // =====================================================
 // COMMON TYPES

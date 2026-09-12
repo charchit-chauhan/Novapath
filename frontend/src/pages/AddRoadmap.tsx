@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../api/client";
 
 type Topic = {
   id: string;
@@ -352,7 +353,7 @@ function AddRoadmap() {
         );
 
         const response = await fetch(
-          "http://localhost:5000/api/generate-roadmap",
+          `${API_BASE_URL}/api/generate-roadmap`,
           {
             method: "POST",
 
@@ -460,7 +461,7 @@ function AddRoadmap() {
             : fileData;
 
         const response = await fetch(
-          "http://localhost:5000/api/analyze-roadmap-image",
+          `${API_BASE_URL}/api/analyze-roadmap-image`,
           {
             method: "POST",
 
